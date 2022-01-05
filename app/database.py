@@ -5,7 +5,7 @@ from .config import setting
 
 
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
-SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{setting.db_username}:{setting.db_password}" \
+SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://{setting.db_username}:{setting.db_password}" \
                           f"@{setting.db_host}:{setting.db_port}/{setting.db_name}"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
