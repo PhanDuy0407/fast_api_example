@@ -12,7 +12,7 @@ from app.config import setting
 config = context.config
 config.set_main_option(
     "sqlalchemy.url",
-    f"mysql+pymysql://{setting.db_username}:{setting.db_password}@{setting.db_host}:{setting.db_port}/{setting.db_name}"
+    f"postgresql+psycopg2://{setting.db_username}:{setting.db_password}@{setting.db_host}:{setting.db_port}/{setting.db_name}"
 )
 
 # Interpret the config file for Python logging.

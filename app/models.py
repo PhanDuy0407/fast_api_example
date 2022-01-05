@@ -1,7 +1,7 @@
 from sqlalchemy.orm import relationship
 
 from app.database import Base
-from sqlalchemy import Column, Integer, String, Float, Boolean, DATETIME, text, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Boolean, DATETIME, text, ForeignKey, TIMESTAMP
 
 
 class Post(Base):
@@ -11,7 +11,7 @@ class Post(Base):
     title = Column(String(45), nullable=False)
     content = Column(String(10000), nullable=False)
     published = Column(Boolean, server_default='1')
-    created_at = Column(DATETIME, server_default=text('now()'))
+    created_at = Column(TIMESTAMP, server_default=text('now()'))
     owner_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     owner = relationship("User")
 
@@ -22,7 +22,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     email = Column(String(45), nullable=False)
     password = Column(String(10000), nullable=False)
-    created_at = Column(DATETIME, server_default=text('now()'))
+    created_at = Column(TIMESTAMP, server_default=text('now()'))
 
 
 class Vote(Base):
